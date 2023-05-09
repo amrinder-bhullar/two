@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+$primary-hover-color: #0ec1ae;
+$primary-active-color: #222222;
+$link-color: #333;
+$product-price-color: #696969;
+$pri-cl: #868686;
+
+@mixin pri-button($bg-color: transparent){
+    padding: 12px 30px;
+    color: white;
+    background-color: $bg-color;
+    border: 1px solid white;
+    font-size: 12px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: $link-color;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 90%;
+    color: white;
+    background-color: transparent;
+    margin: 0 auto;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    // margin-top: 20px;
+
+    .logo-box {
+        width: 100px;
+    }
+    .logo-box img{
+        width: 100%;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    .navbar-box ul, .user-box ul {
+        display: flex;
+        column-gap: 20px;
+    }
+
+    .navbar-box ul li{
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .user-box ul li {
+        font-size: 20px;
+    }
+}
+
+.splide {
+    width: 100%;
+    // height: 1080px;
+    position: relative;
+
+    ul li img {
+        width: 105%;
+        height: 100%;
+    }
+
+    .slide-info-box {
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        // width: 300px;
+        color: white;
+
+        h1{
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        button{
+            @include pri-button;
+            &:hover{
+                background-color: $primary-hover-color;
+                border-color: $primary-hover-color;
+            }
+        }
+    }
+}
+
+.timer-container {
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    color: #242424;
+    background-image: url('https://cdn.shopify.com/s/files/1/0651/3157/7585/files/17.1.jpg?v=1660883507&width=1728');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .timer-container .timer-info-box {
+    display: flex;
+  }
+  
+  
+  .timer-container .timer-info-box .timer-info {
+    border-right: 1px solid #65656519;
+    padding: 30px;
+  }
+  .timer-container .timer-info-box .timer-info h1 {
+    font-size: 40px;
+    font-weight: 300;
+  }
+  
+  .timer-container .timer-box {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 10px;
+
+    button {
+        display: flex;
+        align-items: start;
+        border: none;
+        border-bottom: 1px solid black;
+        background-color: transparent;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 5px 0;
+        // letter-spacing: 0.3px;
+    }
+  }
+  
+  .timer-container .timer-box .discount {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+  
+  .timer-container .timer-box .timer {
+    background-color: white;
+    color: red;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+.product-carousel{
+    padding: 60px 0;
+    h3{
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 300;
+        font-size: 34px;
+    }
+    .carousel-nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 40px;
+        padding: 20px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.162);
+        margin-bottom: 40px;
+
+        .carousel-nav-button{
+            span{
+                color: $pri-cl;
+                cursor: pointer;
+                &.active{
+                    color: $primary-active-color;
+                    border-bottom: 1px solid $primary-active-color;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+.carousel-body{
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 80%;
+
+    &.active{
+        display: grid;
+    }
+
+    .product-card{
+        .product-card-inner{
+            position: relative;
+            overflow: hidden;
+            
+            .product-tag span{
+                padding: 3px;
+                background-color: red;
+                color: white;
+                font-size: 11px;
+                position: absolute;
+                z-index: 2;
+                top: 10px;
+                left: 10px;
+            }
+            .variants-info{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 20px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                transition: all 0.3s;
+                visibility: hidden;
+                opacity: 0;
+            }
+            &:hover{
+                .variants-info{
+                    visibility:visible;
+                    opacity: 1;
+                }
+            }
+        }
+        .product-card-info{
+            .name-wishlist{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0;
+                font-size: 14px;
+                font-weight: 400;
+                .name{
+                    color: $link-color;
+                }
+            }
+            .price{
+                color: $product-price-color;
+                font-size: 14px;
+            }
+        }
+    }
+
+}
+
+.collections-slider{
+    padding-bottom: 70px;
+    .splide__slide{
+        position: relative;
+        .collection-slide-info-box{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 10%;
+            right: 0;
+            left: 0;
+            button{
+                @include pri-button;
+                background-color: white;
+                color: $primary-active-color;
+                width: 150px;
+            }
+        }
+    }
+}
